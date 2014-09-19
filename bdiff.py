@@ -1,5 +1,8 @@
 #!/usr/bin/python
 
+from __future__ import print_function
+
+import binascii
 import sys
 
 def main():
@@ -10,15 +13,15 @@ def main():
 		a = f1.read(32)
 		b = f2.read(32)
 		if a != b:
-			print "MISMATCH before byte %d:" % (f1.tell(),)
-			print a.encode("hex")
-			print b.encode("hex")
+			print("MISMATCH before byte %d:" % (f1.tell(),))
+			print(binascii.hexlify(a))
+			print(binascii.hexlify(b))
 
 		if not a or not b:
 			if a:
-				print "WARNING \n%r still has more data but stopping because we've run out of \n%r" % (fname1, fname2)
+				print("WARNING \n%r still has more data but stopping because we've run out of \n%r" % (fname1, fname2))
 			elif b:
-				print "WARNING \n%r still has more data but stopping because we've run out of \n%r" % (fname2, fname1)
+				print("WARNING \n%r still has more data but stopping because we've run out of \n%r" % (fname2, fname1))
 			break
 
 
