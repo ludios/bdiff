@@ -19,9 +19,11 @@ def main():
 
 		if not a or not b:
 			if a:
-				print("WARNING \n%r still has more data but stopping because we've run out of \n%r" % (fname1, fname2))
+				print("WARNING \n%r still has more data but stopping because we've "
+					"run out of \n%r" % (fname1, fname2))
 			elif b:
-				print("WARNING \n%r still has more data but stopping because we've run out of \n%r" % (fname2, fname1))
+				print("WARNING \n%r still has more data but stopping because we've "
+					"run out of \n%r" % (fname2, fname1))
 			break
 
 
