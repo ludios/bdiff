@@ -1,6 +1,4 @@
-#!/usr/bin/python
-
-from __future__ import print_function
+#!/usr/bin/env python3
 
 import binascii
 import sys
@@ -14,8 +12,9 @@ def main():
 		b = f2.read(32)
 		if a != b:
 			print("MISMATCH before byte %d:" % (f1.tell(),))
-			print(binascii.hexlify(a))
-			print(binascii.hexlify(b))
+			# hexlify returns bytes instead of str
+			print(binascii.hexlify(a).decode("ascii"))
+			print(binascii.hexlify(b).decode("ascii"))
 
 		if not a or not b:
 			if a:
